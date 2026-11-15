@@ -1,0 +1,6 @@
+true_fault,pred_fault,count
+Reliability Fault,Thermal Fault,17
+Thermal Fault,Reliability Fault,10
+Power Fault,Thermal Fault,4
+Thermal Fault,Power Fault,4
+Reliability Fault,Power Fault,1

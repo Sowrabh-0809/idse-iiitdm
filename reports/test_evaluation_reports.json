@@ -1,0 +1,206 @@
+{
+  "Dummy Baseline": {
+    "No Fault": {
+      "precision": 0.16666666666666666,
+      "recall": 1.0,
+      "f1-score": 0.2857142857142857,
+      "support": 750.0
+    },
+    "Thermal Fault": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 750.0
+    },
+    "Timing Fault": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 750.0
+    },
+    "Power Fault": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 750.0
+    },
+    "Signal Integrity Fault": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 750.0
+    },
+    "Reliability Fault": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 750.0
+    },
+    "accuracy": 0.16666666666666666,
+    "macro avg": {
+      "precision": 0.027777777777777776,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.047619047619047616,
+      "support": 4500.0
+    },
+    "weighted avg": {
+      "precision": 0.027777777777777776,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.047619047619047616,
+      "support": 4500.0
+    }
+  },
+  "Logistic Regression": {
+    "No Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Thermal Fault": {
+      "precision": 0.9477211796246648,
+      "recall": 0.9426666666666667,
+      "f1-score": 0.9451871657754011,
+      "support": 750.0
+    },
+    "Timing Fault": {
+      "precision": 0.9973404255319149,
+      "recall": 1.0,
+      "f1-score": 0.9986684420772304,
+      "support": 750.0
+    },
+    "Power Fault": {
+      "precision": 0.9813581890812251,
+      "recall": 0.9826666666666667,
+      "f1-score": 0.9820119920053297,
+      "support": 750.0
+    },
+    "Signal Integrity Fault": {
+      "precision": 1.0,
+      "recall": 0.996,
+      "f1-score": 0.9979959919839679,
+      "support": 750.0
+    },
+    "Reliability Fault": {
+      "precision": 0.9575596816976127,
+      "recall": 0.9626666666666667,
+      "f1-score": 0.9601063829787234,
+      "support": 750.0
+    },
+    "accuracy": 0.9806666666666667,
+    "macro avg": {
+      "precision": 0.9806632459892364,
+      "recall": 0.9806666666666666,
+      "f1-score": 0.9806616624701087,
+      "support": 4500.0
+    },
+    "weighted avg": {
+      "precision": 0.9806632459892363,
+      "recall": 0.9806666666666667,
+      "f1-score": 0.9806616624701088,
+      "support": 4500.0
+    }
+  },
+  "Random Forest": {
+    "No Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Thermal Fault": {
+      "precision": 0.9620915032679739,
+      "recall": 0.9813333333333333,
+      "f1-score": 0.9716171617161716,
+      "support": 750.0
+    },
+    "Timing Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Power Fault": {
+      "precision": 0.9933155080213903,
+      "recall": 0.9906666666666667,
+      "f1-score": 0.9919893190921228,
+      "support": 750.0
+    },
+    "Signal Integrity Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Reliability Fault": {
+      "precision": 0.9864314789687924,
+      "recall": 0.9693333333333334,
+      "f1-score": 0.9778076664425017,
+      "support": 750.0
+    },
+    "accuracy": 0.9902222222222222,
+    "macro avg": {
+      "precision": 0.9903064150430261,
+      "recall": 0.9902222222222221,
+      "f1-score": 0.9902356912084661,
+      "support": 4500.0
+    },
+    "weighted avg": {
+      "precision": 0.9903064150430261,
+      "recall": 0.9902222222222222,
+      "f1-score": 0.990235691208466,
+      "support": 4500.0
+    }
+  },
+  "XGBoost": {
+    "No Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Thermal Fault": {
+      "precision": 0.9722589167767504,
+      "recall": 0.9813333333333333,
+      "f1-score": 0.9767750497677505,
+      "support": 750.0
+    },
+    "Timing Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Power Fault": {
+      "precision": 0.9933422103861518,
+      "recall": 0.9946666666666667,
+      "f1-score": 0.9940039973351099,
+      "support": 750.0
+    },
+    "Signal Integrity Fault": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 750.0
+    },
+    "Reliability Fault": {
+      "precision": 0.9865229110512129,
+      "recall": 0.976,
+      "f1-score": 0.9812332439678284,
+      "support": 750.0
+    },
+    "accuracy": 0.992,
+    "macro avg": {
+      "precision": 0.9920206730356859,
+      "recall": 0.992,
+      "f1-score": 0.9920020485117815,
+      "support": 4500.0
+    },
+    "weighted avg": {
+      "precision": 0.9920206730356859,
+      "recall": 0.992,
+      "f1-score": 0.9920020485117814,
+      "support": 4500.0
+    }
+  }
+}

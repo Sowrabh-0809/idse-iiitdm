@@ -1,0 +1,80 @@
+[
+  {
+    "fault_class": "No Fault",
+    "sample_id": 2323,
+    "top_positive_features": [
+      "dynamic_switching_stress",
+      "signal_delay",
+      "electromigration_risk",
+      "mttf",
+      "aging_thermal_stress",
+      "aging_factor"
+    ],
+    "top_negative_features": []
+  },
+  {
+    "fault_class": "Thermal Fault",
+    "sample_id": 3686,
+    "top_positive_features": [
+      "voltage",
+      "frequency",
+      "v2_freq",
+      "ambient_temp",
+      "junction_temperature",
+      "workload"
+    ],
+    "top_negative_features": []
+  },
+  {
+    "fault_class": "Timing Fault",
+    "sample_id": 1909,
+    "top_positive_features": [
+      "si_margin",
+      "cooling_efficiency",
+      "noise_margin",
+      "v_over_freq",
+      "v2_freq",
+      "voltage"
+    ],
+    "top_negative_features": []
+  },
+  {
+    "fault_class": "Power Fault",
+    "sample_id": 151,
+    "top_positive_features": [
+      "frequency",
+      "cooling_efficiency",
+      "ambient_temp",
+      "noise_margin",
+      "voltage",
+      "dynamic_switching_stress"
+    ],
+    "top_negative_features": []
+  },
+  {
+    "fault_class": "Signal Integrity Fault",
+    "sample_id": 2640,
+    "top_positive_features": [
+      "aging_thermal_stress",
+      "voltage",
+      "ambient_temp",
+      "cooling_efficiency",
+      "si_margin",
+      "noise_margin"
+    ],
+    "top_negative_features": []
+  },
+  {
+    "fault_class": "Reliability Fault",
+    "sample_id": 2992,
+    "top_positive_features": [
+      "v2_freq",
+      "process_variation",
+      "v_over_freq",
+      "mttf",
+      "aging_factor",
+      "frequency"
+    ],
+    "top_negative_features": []
+  }
+]

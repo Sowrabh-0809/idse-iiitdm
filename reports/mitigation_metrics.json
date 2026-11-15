@@ -1,0 +1,18 @@
+{
+  "Random Forest": {
+    "val_macro_f1": 0.2946102053494799,
+    "test_accuracy": 0.5588888888888889,
+    "test_precision_macro": 0.4270397480106696,
+    "test_recall_macro": 0.37123305761628084,
+    "test_macro_f1": 0.29740889808875975,
+    "test_weighted_f1": 0.45728800157280125
+  },
+  "XGBoost": {
+    "val_macro_f1": 0.3220910747884216,
+    "test_accuracy": 0.5511111111111111,
+    "test_precision_macro": 0.3815449546062849,
+    "test_recall_macro": 0.3717205664035451,
+    "test_macro_f1": 0.3146491733096535,
+    "test_weighted_f1": 0.4675568549668933
+  }
+}
