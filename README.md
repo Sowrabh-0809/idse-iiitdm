@@ -66,7 +66,7 @@ npm run test
 ## 📂 Project Structure
 
 ```
-IDSE_PROJECT/
+IDSE_GAME/
 ├── index.html                   # Entry HTML document with detective styling
 ├── package.json                 # Project configuration & npm scripts
 ├── vite.config.js               # Vite build and dev-server configuration
@@ -95,17 +95,3 @@ IDSE_PROJECT/
     └── tests/
         └── mathAndState.test.js # 11 automated unit tests
 ```
-
----
-
-## 🎯 Phase 1 Status: COMPLETE
-- [x] Workspace & environment verified.
-- [x] Vite, Vitest, and Plotly installed and configured.
-- [x] Main menu with radar animation, Start, Continue, Settings, and Audio controls.
-- [x] Interactive 2D illustrated IIITDM campus map with 4 playable buildings.
-- [x] Detective avatar path movement and pulsing tactical markers.
-- [x] Sequential mission locking logic (M1 unlocked; M2-M5 locked).
-- [x] Slide-out Detective Notebook and Case Dossier with LocalStorage persistence.
-- [x] Statistically verified math utilities with 11 automated unit tests passing.
-- [x] Production build tested and verified (`npm run build`).
-
