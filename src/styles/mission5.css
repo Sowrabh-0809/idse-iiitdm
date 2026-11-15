@@ -1,0 +1,236 @@
+/* ==========================================================================
+   MISSION 5: THE FINAL VERDICT - STYLES
+   ========================================================================== */
+
+.m5-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1024px) {
+  .m5-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.m5-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.m5-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+}
+
+.m5-card-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--accent-green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* THRESHOLD CONTROL BAR */
+.threshold-control-bar {
+  background: rgba(14, 21, 29, 0.9);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.threshold-slider-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.threshold-slider {
+  accent-color: var(--accent-green);
+  cursor: pointer;
+  width: 180px;
+}
+
+/* 2x2 CONFUSION MATRIX */
+.confusion-matrix-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr 1fr;
+  grid-template-rows: 30px 1fr 1fr;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.cm-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.cm-cell {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cm-cell.tp {
+  border-color: rgba(0, 230, 118, 0.4);
+  background: rgba(0, 230, 118, 0.1);
+}
+
+.cm-cell.tn {
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.cm-cell.fp {
+  border-color: rgba(255, 179, 0, 0.4);
+  background: rgba(255, 179, 0, 0.1);
+}
+
+.cm-cell.fn {
+  border-color: rgba(255, 82, 82, 0.4);
+  background: rgba(255, 82, 82, 0.1);
+}
+
+.cm-val {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cm-val.tp-val { color: var(--accent-green); }
+.cm-val.tn-val { color: var(--accent-cyan); }
+.cm-val.fp-val { color: var(--accent-amber); }
+.cm-val.fn-val { color: var(--accent-red); }
+
+/* METRICS STRIP */
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.metric-pill {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metric-pill-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.metric-pill-val {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--text-main);
+}
+
+/* EVIDENCE SYNTHESIS CORKBOARD */
+.corkboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.corkboard-clue-card {
+  background: #111a24;
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  position: relative;
+}
+
+.pin-icon {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 12px;
+}
+
+.cork-clue-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-amber);
+  font-weight: 700;
+}
+
+.cork-clue-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-top: 2px;
+}
+
+.cork-clue-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* DECISION TREE BUILDER */
+.decision-tree-container {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.tree-node-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.tree-connector {
+  width: 2px;
+  height: 12px;
+  background: var(--border-light);
+  margin-left: 20px;
+}

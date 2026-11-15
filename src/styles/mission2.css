@@ -1,0 +1,220 @@
+/* ==========================================================================
+   MISSION 2: THE HIDDEN PATTERN - STYLES
+   ========================================================================== */
+
+.m2-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 1024px) {
+  .m2-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.m2-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.m2-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 8px;
+}
+
+.m2-card-title {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.correlation-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.r-value-display {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-amber);
+}
+
+.r-strength-tag {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 179, 0, 0.15);
+  color: var(--accent-amber);
+  border: 1px solid rgba(255, 179, 0, 0.4);
+}
+
+.r-strength-tag.weak {
+  background: rgba(0, 230, 118, 0.15);
+  color: var(--accent-green);
+  border-color: rgba(0, 230, 118, 0.4);
+}
+
+/* TIME SHIFT FORENSIC SLIDER */
+.time-shift-control-bar {
+  background: rgba(14, 21, 29, 0.9);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.shift-info-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shift-label-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  letter-spacing: 0.05em;
+}
+
+.shift-label-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.shift-buttons-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.shift-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shift-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-main);
+  border-color: var(--accent-cyan);
+}
+
+.shift-btn.active {
+  background: rgba(0, 229, 255, 0.15);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
+  font-weight: 700;
+}
+
+.shift-btn.corrected {
+  border-color: var(--accent-green);
+}
+
+.shift-btn.corrected.active {
+  background: rgba(0, 230, 118, 0.15);
+  color: var(--accent-green);
+  box-shadow: 0 0 10px rgba(0, 230, 118, 0.25);
+}
+
+/* DEDUCTION MATRIX */
+.deduction-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.deduction-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.deduction-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deduction-choice:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 229, 255, 0.05);
+}
+
+.deduction-choice.selected {
+  border-color: var(--accent-amber);
+  background: rgba(255, 179, 0, 0.08);
+}
+
+.deduction-choice.correct.selected {
+  border-color: var(--accent-green);
+  background: rgba(0, 230, 118, 0.1);
+}
+
+.deduction-choice.incorrect.selected {
+  border-color: var(--accent-red);
+  background: rgba(255, 82, 82, 0.1);
+}
+
+.choice-radio {
+  margin-top: 3px;
+  accent-color: var(--accent-cyan);
+}
+
+.choice-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.choice-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.choice-explanation {
+  font-size: 12px;
+  color: var(--text-muted);
+}
