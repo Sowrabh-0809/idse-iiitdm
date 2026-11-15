@@ -66,7 +66,7 @@ npm run test
 ## 📂 Project Structure
 
 ```
-AKHIL_IDSE_PROJECT/
+IDSE_PROJECT/
 ├── index.html                   # Entry HTML document with detective styling
 ├── package.json                 # Project configuration & npm scripts
 ├── vite.config.js               # Vite build and dev-server configuration
