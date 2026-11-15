@@ -26,6 +26,10 @@ from data_loader import (
 )
 from predict import VLSIPredictor, get_demo_samples
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+REPORTS_DIR = os.path.join(BASE_DIR, "reports")
+FIGURES_DIR = os.path.join(REPORTS_DIR, "figures")
+
 # Streamlit Page Config
 st.set_page_config(
     page_title="VLSI Fault Diagnosis & Mitigation AI",
@@ -75,7 +79,7 @@ def get_dataset():
 @st.cache_data
 def get_metrics_and_reports():
     reports = {}
-    reports_dir = "reports"
+    reports_dir = REPORTS_DIR
     
     # Model comparison table
     comp_path = os.path.join(reports_dir, "model_comparison_table.csv")
@@ -217,7 +221,7 @@ elif menu == "2. Exploratory Data Analysis":
         st.subheader("Fault Class Distribution & Summary Statistics")
         c1, c2 = st.columns([1, 1.2])
         with c1:
-            st.image("reports/figures/fault_class_distribution.png", caption="Figure 1: Fault Class Distribution (Exact Balanced Dataset)")
+            st.image(os.path.join(FIGURES_DIR, "fault_class_distribution.png"), caption="Figure 1: Fault Class Distribution (Exact Balanced Dataset)")
             st.markdown("""
             **Interpretation:**
             The dataset features an exact, perfectly balanced distribution of 5,000 samples per fault class (16.67% each, total N=30,000). 
@@ -230,7 +234,7 @@ elif menu == "2. Exploratory Data Analysis":
             
     with tab2:
         st.subheader("Boxplot Distributions Across Fault Categories")
-        st.image("reports/figures/boxplots_electrical_parameters.png", caption="Figure 3: Critical Electrical Parameters Across Fault Classes")
+        st.image(os.path.join(FIGURES_DIR, "boxplots_electrical_parameters.png"), caption="Figure 3: Critical Electrical Parameters Across Fault Classes")
         st.markdown(r"""
         **Key Physical Observations:**
         1. **Junction Temperature**: Exhibits massive separation for **Thermal Faults** (median ~115°C) and **Reliability Faults** (median ~99°C) compared to Nominal (~48°C).
@@ -243,14 +247,14 @@ elif menu == "2. Exploratory Data Analysis":
         st.subheader("Feature Correlation & Voltage-Frequency Phase Space")
         col_c1, col_c2 = st.columns(2)
         with col_c1:
-            st.image("reports/figures/correlation_heatmap.png", caption="Figure 4: Pearson Correlation Matrix")
+            st.image(os.path.join(FIGURES_DIR, "correlation_heatmap.png"), caption="Figure 4: Pearson Correlation Matrix")
             st.markdown("""
             **Correlation Insights:**
             Strong positive correlation between `total_power` and `junction_temperature` (r = 0.81), and between `voltage` and `frequency`. 
             `si_margin` correlates inversely with noise and high-frequency switching.
             """)
         with col_c2:
-            st.image("reports/figures/voltage_vs_frequency.png", caption="Figure 7: Voltage vs Frequency Operating Regimes")
+            st.image(os.path.join(FIGURES_DIR, "voltage_vs_frequency.png"), caption="Figure 7: Voltage vs Frequency Operating Regimes")
             st.markdown("""
             **Operating Regime Insights:**
             Power faults cluster strictly in the high-voltage/high-frequency quadrant (>1.10V, >2.9 GHz). 
@@ -259,7 +263,7 @@ elif menu == "2. Exploratory Data Analysis":
             
     with tab4:
         st.subheader("Standardized Feature Deviations Across All Six Fault Classes")
-        st.image("reports/figures/feature_comparison_across_faults.png", caption="Figure 8: Z-Score Normalized Feature Deviations Across Classes")
+        st.image(os.path.join(FIGURES_DIR, "feature_comparison_across_faults.png"), caption="Figure 8: Z-Score Normalized Feature Deviations Across Classes")
         st.markdown(r"""
         **Standardized Profile Interpretation:**
         This bar chart plots the deviation of each fault class from the global dataset mean in units of standard deviations ($\sigma$). 
@@ -292,7 +296,7 @@ elif menu == "3. Model Performance & Benchmarks":
     col_bench1, col_bench2 = st.columns([1.1, 1])
     with col_bench1:
         st.subheader("2. Performance Comparison Chart")
-        st.image("reports/figures/model_performance_comparison.png", caption="Model Comparison on Test Set")
+        st.image(os.path.join(FIGURES_DIR, "model_performance_comparison.png"), caption="Model Comparison on Test Set")
         st.markdown("""
         **Architectural Strengths & Limitations:**
         - **Dummy Baseline**: Achieves exactly 16.67% accuracy and 0.0476 Macro F1 (1/6 chance for 6 balanced classes). Proves models learn real signals.
@@ -316,7 +320,7 @@ elif menu == "3. Model Performance & Benchmarks":
             )
             
         st.subheader("4. Confusion Matrices (All Evaluated Models)")
-        st.image("reports/figures/all_models_confusion_matrices.png", caption="Test Set Confusion Matrices")
+        st.image(os.path.join(FIGURES_DIR, "all_models_confusion_matrices.png"), caption="Test Set Confusion Matrices")
         
     st.markdown("---")
     st.subheader("5. In-Depth Error Analysis")
@@ -326,7 +330,7 @@ elif menu == "3. Model Performance & Benchmarks":
             st.markdown("**Most Frequently Confused Fault Pairs (Test Set Errors: 36 / 4,500 = 0.80%)**")
             st.dataframe(reports["confused_pairs_df"], use_container_width=True)
     with col_err2:
-        st.image("reports/figures/error_analysis_misclassifications.png", caption="Error Boundary Distribution")
+        st.image(os.path.join(FIGURES_DIR, "error_analysis_misclassifications.png"), caption="Error Boundary Distribution")
         st.markdown(r"""
         **Physical Rationale for Confused Pairs:**
         The primary misclassifications occur between **Reliability Fault** and **Thermal Fault** (17 and 10 samples).
@@ -460,7 +464,7 @@ elif menu == "5. Explainable AI (SHAP)":
     
     with col_shap1:
         st.subheader("1. Global SHAP Feature Importance Ranking")
-        st.image("reports/figures/shap_feature_importance_bar.png", caption="Top 15 Most Influential Features across All Fault Classes")
+        st.image(os.path.join(FIGURES_DIR, "shap_feature_importance_bar.png"), caption="Top 15 Most Influential Features across All Fault Classes")
         st.markdown("""
         **Key Global Drivers:**
         - **Supply Voltage & Frequency**: Top overall impact on model log-odds. Dictates power consumption and timing slack.
@@ -471,7 +475,7 @@ elif menu == "5. Explainable AI (SHAP)":
         
     with col_shap2:
         st.subheader("2. Class-Decomposed SHAP Impact")
-        st.image("reports/figures/shap_summary_plot.png", caption="Decomposed SHAP Contributions by Fault Category")
+        st.image(os.path.join(FIGURES_DIR, "shap_summary_plot.png"), caption="Decomposed SHAP Contributions by Fault Category")
         st.markdown("""
         **Class Specificity:**
         - Thermal Faults are overwhelmingly influenced by junction temperature and cooling efficiency.
@@ -481,7 +485,7 @@ elif menu == "5. Explainable AI (SHAP)":
         
     st.markdown("---")
     st.subheader("3. Local Instance Attribution (Individual Test Sample Explanations)")
-    st.image("reports/figures/shap_individual_sample_explanations.png", caption="SHAP Diagnostic Rationale for Canonical Test Samples Across All 6 Classes")
+    st.image(os.path.join(FIGURES_DIR, "shap_individual_sample_explanations.png"), caption="SHAP Diagnostic Rationale for Canonical Test Samples Across All 6 Classes")
     st.markdown("""
     **Local Attribution Interpretation:**
     Green bars indicate parameters pushing the model *towards* predicting that specific fault class. 
