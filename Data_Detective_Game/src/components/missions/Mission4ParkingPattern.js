@@ -36,7 +36,7 @@ export class Mission4ParkingPattern {
     const { lotCapacity, trueP } = this.dataset;
     let totalArrivals = 0;
 
-    // Monte Carlo simulation with reproducible randomness
+    // Monte Carlo simulation using random Bernoulli trials
     for (let t = 0; t < this.trialCount; t++) {
       let activeCars = 0;
       for (let slot = 0; slot < lotCapacity; slot++) {
@@ -229,10 +229,13 @@ export class Mission4ParkingPattern {
     const submitBtn = this.container.querySelector('#btn-submit-m4');
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
+        const { lotCapacity, trueP } = this.dataset;
+        const faultyP = Math.min(0.95, trueP * 2.05);
         this.reportModal.show({
           score: 100,
-          rawOccupancy: 86,
-          theoreticalOccupancy: 43,
+          rawOccupancy: Math.round(faultyP * 100),
+          theoreticalOccupancy: Math.round(trueP * 100),
+          expectedVehicles: (lotCapacity * trueP).toFixed(1),
           filteredOccupancy: this.occupancyPercent
         });
       });
@@ -244,9 +247,11 @@ export class Mission4ParkingPattern {
     const height = 180;
     const pad = 30;
 
-    // Normal curve bell shape for theoretical binomial (n=120, p=0.32, mean=38.4, std≈5.1)
-    const theoMeanX = pad + (52 / 120) * (width - pad * 2);
-    const expMeanX = pad + (this.meanOccupancy / 120) * (width - pad * 2);
+    // Theoretical binomial mean: E(X) = n × p
+    const { lotCapacity, trueP } = this.dataset;
+    const theoreticalOccupancy = lotCapacity * trueP;
+    const theoMeanX = pad + (theoreticalOccupancy / lotCapacity) * (width - pad * 2);
+    const expMeanX = pad + (this.meanOccupancy / lotCapacity) * (width - pad * 2);
 
     return `
       <svg viewBox="0 0 ${width} ${height}" style="width: 100%; height: 100%;">
@@ -265,7 +270,7 @@ export class Mission4ParkingPattern {
         <!-- THEORETICAL CURVE (CYAN) -->
         <path d="M ${theoMeanX - 70} ${height - pad} Q ${theoMeanX} ${pad + 20} ${theoMeanX + 70} ${height - pad}" fill="rgba(0, 229, 255, 0.15)" stroke="#00e5ff" stroke-width="2" />
         <line x1="${theoMeanX}" y1="${pad + 15}" x2="${theoMeanX}" y2="${height - pad}" stroke="#00e5ff" stroke-width="1.5" stroke-dasharray="3 3" />
-        <text x="${theoMeanX}" y="${pad + 10}" fill="#00e5ff" font-size="9" text-anchor="middle">Expected (52)</text>
+        <text x="${theoMeanX}" y="${pad + 10}" fill="#00e5ff" font-size="9" text-anchor="middle">Expected (${theoreticalOccupancy.toFixed(1)})</text>
 
         <!-- EXPERIMENTAL CURVE -->
         <path d="M ${expMeanX - 60} ${height - pad} Q ${expMeanX} ${pad + 40} ${expMeanX + 60} ${height - pad}" fill="${this.isDebounceActive ? 'rgba(0, 230, 118, 0.15)' : 'rgba(255, 82, 82, 0.15)'}" stroke="${this.isDebounceActive ? '#00e676' : '#ff5252'}" stroke-width="2" />
