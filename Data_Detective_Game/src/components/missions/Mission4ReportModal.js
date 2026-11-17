@@ -12,7 +12,7 @@ export class Mission4ReportModal {
 
   show(results) {
     const meta = MISSIONS_DATA.m4;
-    const { score, rawOccupancy, theoreticalOccupancy, filteredOccupancy } = results;
+    const { score, rawOccupancy, theoreticalOccupancy, expectedVehicles, filteredOccupancy } = results;
 
     soundManager.playSuccess();
     try {
@@ -28,7 +28,7 @@ export class Mission4ReportModal {
     gameState.completeMission(
       'm4',
       score,
-      `Resolved parking occupancy anomaly. Filtered sensor bounce debounce loop, lowering occupancy from ${rawOccupancy}% down to ${filteredOccupancy}% (matching theoretical expected ${theoreticalOccupancy}%).`
+      `Resolved parking occupancy anomaly. Applied a debounce filter to remove rapid duplicate RFID pulses, reducing reported occupancy from an expected ${rawOccupancy}% to ${filteredOccupancy}%. The theoretical occupancy is ${theoreticalOccupancy}% (${expectedVehicles} of 120 bays).`
     );
 
     this.container.innerHTML = `
@@ -71,8 +71,8 @@ export class Mission4ReportModal {
             <div class="concepts-grid">
               <div class="concept-stat-box">
                 <span class="stat-name">Theoretical vs. Experimental</span>
-                <span class="stat-flow">Experimental 86% → Filtered 43%</span>
-                <p class="stat-desc">Monte Carlo trials prove that over large sample sizes, experimental frequencies converge toward theoretical probability. Divergence flags hardware sensor duplicate bugs.</p>
+                <span class="stat-flow">Faulty expected ${rawOccupancy}% → Debounced observed ${filteredOccupancy}%</span>
+                <p class="stat-desc">The theoretical expectation is ${theoreticalOccupancy}% (${expectedVehicles} of 120 bays). Increasing Monte Carlo trials makes the simulated average more stable and generally closer to the expected value; it does not itself repair the sensor fault.</p>
               </div>
               <div class="concept-stat-box">
                 <span class="stat-name">Hardware Debounce</span>
