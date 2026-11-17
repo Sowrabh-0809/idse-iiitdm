@@ -4,9 +4,10 @@
  * Simulates parking barrier RFID telemetry and Monte Carlo probability trials:
  * - Lot Capacity: 120 spaces
  * - True Arrival Probability: p = 0.32 per 5-minute interval
- * - Theoretical expected occupancy: 52 vehicles (43.3%)
- * - Hardware Defect: RFID sensor retry timeout produces double pulses (< 400ms)
- *   inflating experimental occupancy to 104 vehicles (86.7% - near critical capacity).
+ * - Theoretical expected occupancy: 120 × 0.32 = 38.4 vehicles (32%)
+ * - Hardware Defect: the simulation models rapid RFID retry pulses by increasing
+ *   the reported probability to 0.32 × 2.05 = 0.656, giving an expected
+ *   reported occupancy of 120 × 0.656 = 78.72 vehicles (65.6%).
  */
 
 export function generateMission4Dataset() {
